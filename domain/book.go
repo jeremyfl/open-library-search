@@ -11,7 +11,7 @@ type Book struct {
 
 // BookService represent the book service or business logic
 type BookService interface {
-	SearchBook(keyword string) []Book
+	SearchBook(keyword string) *[]Book
 }
 
 // BookRepository represent the book repository

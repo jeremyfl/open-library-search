@@ -2,9 +2,13 @@ package service
 
 import "open-library-search/domain"
 
+type bookService struct {
+	repo domain.BookRepository
+}
+
 // SearchBook search book from repo and return
 // list of domain book
-func SearchBook(keyword *string) *[]domain.Book {
+func (bs *bookService) SearchBook(keyword *string) *[]domain.Book {
 	return &[]domain.Book{
 		{
 			ID:          1,

@@ -13,7 +13,7 @@ type BookController struct {
 
 // SearchBook search book entities for HTTP call
 func (bc *BookController) SearchBook(c echo.Context) error {
-	keyword := c.QueryParam("name")
+	keyword := c.QueryParam("title")
 	data := bc.Service.SearchBook(keyword)
 
 	return GenerateResponse(c, 200, "Fetch Book success", data)
