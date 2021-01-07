@@ -11,14 +11,10 @@ type BookController struct {
 	Service domain.BookService
 }
 
+// SearchBook search book entities for HTTP call
 func (bc *BookController) SearchBook(c echo.Context) error {
-	book := &domain.Book{
-		ID:          1,
-		Title:       "Leadership 101",
-		Description: "The Maxwell Daily Reader",
-		AuthorName:  "John Maxwell",
-		Thumbnail:   "leadership-john-1.png",
-	}
+	keyword := c.QueryParam("name")
+	data := bc.Service.SearchBook(keyword)
 
-	return GenerateResponse(c, 200, "Fetch Book success", book)
+	return GenerateResponse(c, 200, "Fetch Book success", data)
 }
